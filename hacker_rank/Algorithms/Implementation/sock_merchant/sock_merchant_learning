@@ -1,0 +1,17 @@
+My solution:
+	return sum([ar.count(i)//2 for i in set(ar)])
+
+Comment on Discussion forum:
+	Unfortunately, I think this is O(n^2). Not that it matters too much for a problem with 100 socks.
+	The issue is that set(socks) is of size O(n) and list.count() method's runtime is O(n)
+
+Conclusion: 
+	Use Counter.
+
+New code:
+	def sockMerchant(n, ar):
+    		pairs = 0
+    		freq = Counter(ar)
+    		for sock in freq:
+        		pairs += freq[sock] // 2
+    		return pairs
